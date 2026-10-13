@@ -1,5 +1,6 @@
 import Header from './components/Header'
 import Footer from './components/Footer'
+import SobreMim from './components/SobreMim'
 
 function App() {
   const nome = 'Daniell'
@@ -8,7 +9,7 @@ function App() {
     <>
       <Header nome={nome} />
       <main>
-        <section id="sobre"><h2>Sobre Mim</h2></section>
+        <SobreMim />
         <section id="projetos"><h2>Projetos</h2></section>
         <section id="experiencias"><h2>Experiências</h2></section>
         <section id="contato"><h2>Contato</h2></section>
