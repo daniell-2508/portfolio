@@ -3,6 +3,7 @@ import Footer from './components/Footer'
 import SobreMim from './components/SobreMim'
 import Projetos from './components/Projetos'
 import Experiencias from './components/Experiencias'
+import Contato from './components/Contato'
 
 function App() {
   const nome = 'Daniell'
@@ -14,7 +15,7 @@ function App() {
         <SobreMim />
         <Projetos />
         <Experiencias/>
-        <section id="contato"><h2>Contato</h2></section>
+        <Contato />
       </main>
       <Footer nome={nome} />
     </>
