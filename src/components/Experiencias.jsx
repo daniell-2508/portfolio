@@ -11,6 +11,11 @@ function Experiencias() {
             <p className="experiencia__local">{e.instituicao}</p>
             <p className="experiencia__periodo">{e.periodo}</p>
             <p>{e.descricao}</p>
+            {e.certificado && (
+              <a href={e.certificado} target="_blank" rel="noreferrer">
+                Ver certificado
+              </a>
+            )}
           </article>
         ))}
       </div>
