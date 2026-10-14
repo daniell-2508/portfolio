@@ -80,7 +80,7 @@ function Contato() {
       <form className="contato__form" onSubmit={enviar}>
         <label>
           Nome
-          <input name="nome" value={form.nome} onChange={atualizar} />
+            <input name="nome" value={form.nome} onChange={atualizar} />
         </label>
         <label>
           E-mail

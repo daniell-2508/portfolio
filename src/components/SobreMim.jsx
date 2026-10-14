@@ -5,18 +5,20 @@ const textos = {
     titulo: 'Sobre Mim',
     botao: 'English',
     paragrafos: [
-      'Sou estudante de Engenharia de Software na PUC Minas, em Belo Horizonte.',
-      'Minha área de atuação é [ESCREVA AQUI]. Tenho interesse em [ESCREVA AQUI].',
-      'Meu objetivo profissional é [ESCREVA AQUI].',
+      'Me chamo Daniell, tenho 19 anos e estou no segundo período de Engenharia de Software na PUC Minas. Também tenho 5 anos de estudo de inglês.',
+      'Tenho bastante interesse em back-end, que é a área que mais estou estudando na faculdade, e também me interesso por outras áreas da tecnologia, como banco de dados.',
+      'Durante o curso, já realizei projetos usando diversas linguagens de programação.',
+      'Atualmente, busco minha primeira oportunidade profissional (estágio, primeiro emprego ou freela) para ter contato com clientes e enfrentar desafios reais.',
     ],
   },
   en: {
     titulo: 'About Me',
     botao: 'Português',
     paragrafos: [
-      'I am a Software Engineering student at PUC Minas, in Belo Horizonte, Brazil.',
-      'My field of work is [WRITE HERE]. I am interested in [WRITE HERE].',
-      'My professional goal is [WRITE HERE].',
+      "My name is Daniell, I am 19 years old, and I am in my second semester of Software Engineering at PUC Minas. I have also studied English for 5 years.",
+      'I am very interested in back-end development, which is the area I am studying the most at university, and I am also interested in other areas of technology, such as databases.',
+      'During my degree, I have already worked on projects using several programming languages.',
+      'I am currently looking for my first professional opportunity (an internship, a first job, or freelance work) so I can work with clients and take on real challenges.',
     ],
   },
 }
