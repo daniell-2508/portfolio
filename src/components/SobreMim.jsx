@@ -1,4 +1,4 @@
-import { useState } from 'react'
+
 
 const textos = {
   pt: {
@@ -23,20 +23,12 @@ const textos = {
   },
 }
 
-function SobreMim() {
-  const [idioma, setIdioma] = useState('pt')
+function SobreMim({ idioma }) {
   const t = textos[idioma]
-
-  function alternarIdioma() {
-    setIdioma(idioma === 'pt' ? 'en' : 'pt')
-  }
 
   return (
     <section id="sobre">
       <h2>{t.titulo}</h2>
-      <button className="botao-idioma" onClick={alternarIdioma}>
-        {t.botao}
-      </button>
       <div className="sobre__texto">
         {t.paragrafos.map((p) => (
           <p key={p}>{p}</p>
