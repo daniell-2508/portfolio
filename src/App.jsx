@@ -5,6 +5,7 @@ import Projetos from './components/Projetos'
 import Experiencias from './components/Experiencias'
 import Contato from './components/Contato'
 import Footer from './components/Footer'
+import Topo from './components/Topo'
 
 function App() {
   const nome = 'Daniell'
@@ -27,6 +28,7 @@ function App() {
         setTema={setTema}
       />
       <main>
+        <Topo nome={nome} idioma={idioma} />
         <SobreMim idioma={idioma} />
         <Projetos />
         <Experiencias />
