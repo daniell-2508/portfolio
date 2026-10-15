@@ -1,18 +1,21 @@
 const links = {
   pt: [
     { id: 'sobre', texto: 'Sobre Mim' },
+    { id: 'hobbies', texto: 'Hobbies' },
     { id: 'projetos', texto: 'Projetos' },
     { id: 'experiencias', texto: 'Experiências' },
+    { id: 'curriculo', texto: 'Currículo' },
     { id: 'contato', texto: 'Contato' },
   ],
   en: [
     { id: 'sobre', texto: 'About' },
+    { id: 'hobbies', texto: 'Hobbies' },
     { id: 'projetos', texto: 'Projects' },
     { id: 'experiencias', texto: 'Experience' },
+    { id: 'curriculo', texto: 'Resume' },
     { id: 'contato', texto: 'Contact' },
   ],
 }
-
 function Header({ nome, idioma, setIdioma, tema, setTema }) {
   return (
     <header className="header">

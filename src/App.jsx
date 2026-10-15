@@ -6,6 +6,8 @@ import Experiencias from './components/Experiencias'
 import Contato from './components/Contato'
 import Footer from './components/Footer'
 import Topo from './components/Topo'
+import Hobbies from './components/Hobbies'
+import Curriculo from './components/Curriculo'
 
 function App() {
   const nome = 'Daniell'

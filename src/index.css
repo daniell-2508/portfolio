@@ -5,7 +5,8 @@
   --card: #f9fafb;
   --borda: #e5e7eb;
   --destaque: #2563eb;
-  --header-bg: rgba(255, 255, 255, 0.85);
+  --header-bg: #1e3a8a;
+  --header-texto: #ffffff;
 }
 
 [data-tema='dark'] {
@@ -15,7 +16,8 @@
   --card: #1e293b;
   --borda: #334155;
   --destaque: #60a5fa;
-  --header-bg: rgba(15, 23, 42, 0.85);
+  --header-bg: #172554;
+  --header-texto: #ffffff;
 }
 
 * {
@@ -51,51 +53,44 @@ a {
   gap: 1rem;
   padding: 0.9rem 2rem;
   background: var(--header-bg);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--borda);
+  color: var(--header-texto);
 }
 
 .header__nome {
   font-weight: 700;
   font-size: 1.1rem;
-}
-
-.header__links {
-  display: flex;
-  gap: 1.5rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  color: var(--header-texto);
 }
 
 .header__links a {
-  color: var(--texto-suave);
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   font-weight: 500;
 }
 
 .header__links a:hover {
-  color: var(--destaque);
-}
-
-.header__acoes {
-  display: flex;
-  gap: 0.5rem;
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 .botao-icone {
   padding: 0.35rem 0.8rem;
-  border: 1px solid var(--borda);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 8px;
-  background: var(--card);
-  color: var(--texto);
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
   font: inherit;
   font-size: 0.9rem;
   cursor: pointer;
 }
 
 .botao-icone:hover {
-  border-color: var(--destaque);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.header__acoes {
+  display: flex;
+  gap: 0.5rem;
 }
 
 /* Seções */
@@ -370,4 +365,106 @@ section h2 {
   .topo__botoes {
     justify-content: center;
   }
+}
+
+.topo__selo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.75rem 0 0;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--borda);
+  border-radius: 999px;
+  background: var(--card);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.topo__selo-ponto {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: pulsar 1.6s infinite;
+}
+
+@keyframes pulsar {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .topo__selo-ponto {
+    animation: none;
+  }
+}
+
+/* Foto + selo embaixo */
+.topo__lateral {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.topo__lateral .topo__selo {
+  max-width: 260px;
+  margin: 0;
+  border-radius: 18px;
+}
+
+/* Hobbies */
+.hobbies {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.hobby {
+  padding: 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+}
+
+.hobby__icone {
+  font-size: 1.75rem;
+}
+
+.hobby h3 {
+  margin: 0.5rem 0 0.25rem;
+}
+
+.hobby p {
+  margin: 0;
+  color: var(--texto-suave);
+}
+
+/* Currículo */
+.curriculo__botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.curriculo__botoes button.botao {
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.curriculo__visualizador {
+  width: 100%;
+  height: 720px;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  background: var(--card);
 }

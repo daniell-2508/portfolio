@@ -3,22 +3,16 @@
 const textos = {
   pt: {
     titulo: 'Sobre Mim',
-    botao: 'English',
     paragrafos: [
-      'Me chamo Daniell, tenho 19 anos e estou no segundo período de Engenharia de Software na PUC Minas. Também tenho 5 anos de estudo de inglês.',
-      'Tenho bastante interesse em back-end, que é a área que mais estou estudando na faculdade, e também me interesso por outras áreas da tecnologia, como banco de dados.',
-      'Durante o curso, já realizei projetos usando diversas linguagens de programação.',
-      'Atualmente, busco minha primeira oportunidade profissional (estágio, primeiro emprego ou freela) para ter contato com clientes e enfrentar desafios reais.',
+      'Tenho 19 anos e sou apaixonado por novas tecnologias e desenvolvimento de software, com foco em back-end. Trabalho com Python, Java, JavaScript, HTML, CSS e Spring Boot, estou aprendendo React e estou sempre buscando aprender e crescer na área de tecnologia. 🚀',
+      'Atualmente, busco minha primeira oportunidade profissional (estágio, primeiro emprego ou freela), para ter contato com clientes e enfrentar desafios reais.',
     ],
   },
   en: {
     titulo: 'About Me',
-    botao: 'Português',
     paragrafos: [
-      "My name is Daniell, I am 19 years old, and I am in my second semester of Software Engineering at PUC Minas. I have also studied English for 5 years.",
-      'I am very interested in back-end development, which is the area I am studying the most at university, and I am also interested in other areas of technology, such as databases.',
-      'During my degree, I have already worked on projects using several programming languages.',
-      'I am currently looking for my first professional opportunity (an internship, a first job, or freelance work) so I can work with clients and take on real challenges.',
+      "I'm 19 and passionate about new technologies and software development, with a focus on back-end. I work with Python, Java, JavaScript, HTML, CSS and Spring Boot, I'm learning React, and I'm always looking to learn and grow in the tech industry. 🚀",
+      "I'm currently looking for my first professional opportunity (an internship, a first job or freelance work), so I can work with clients and take on real challenges.",
     ],
   },
 }

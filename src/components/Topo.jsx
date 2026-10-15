@@ -1,16 +1,16 @@
 const textos = {
   pt: {
-    ola: 'Olá, eu sou',
-    funcao: 'Estudante de Engenharia de Software',
-    foco: 'Back-end e banco de dados',
+    estudo: 'Cursando o 2º período de Engenharia de Software na PUC Minas, em Belo Horizonte.',
+    selo: 'Disponível para trabalho e projetos',
+    curriculo: 'Currículo',
     projetos: 'Ver projetos',
     contato: 'Contato',
     alt: 'Foto de perfil de',
   },
   en: {
-    ola: "Hi, I'm",
-    funcao: 'Software Engineering Student',
-    foco: 'Back-end and databases',
+    estudo: 'Second-semester Software Engineering student at PUC Minas, in Belo Horizonte, Brazil.',
+    selo: 'Open to work and projects',
+    curriculo: 'Resume',
     projetos: 'View projects',
     contato: 'Contact',
     alt: 'Profile photo of',
@@ -22,14 +22,19 @@ function Topo({ nome, idioma }) {
 
   return (
     <section className="topo">
-      <img className="topo__foto" src="/foto-perfil.jpg" alt={`${t.alt} ${nome}`} />
+      <div className="topo__lateral">
+        <img className="topo__foto" src="/foto-perfil.jpg" alt={`${t.alt} ${nome}`} />
+        <p className="topo__selo">
+          <span className="topo__selo-ponto"></span>
+          {t.selo}
+        </p>
+      </div>
       <div className="topo__texto">
-        <p className="topo__ola">{t.ola}</p>
         <h1>{nome}</h1>
-        <p className="topo__funcao">{t.funcao}</p>
-        <p className="topo__foco">{t.foco}</p>
+        <p className="topo__funcao">{t.estudo}</p>
         <div className="topo__botoes">
-          <a className="botao" href="#projetos">{t.projetos}</a>
+          <a className="botao" href="#curriculo">{t.curriculo}</a>
+          <a className="botao botao--contorno" href="#projetos">{t.projetos}</a>
           <a className="botao botao--contorno" href="#contato">{t.contato}</a>
         </div>
       </div>
