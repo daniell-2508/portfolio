@@ -1,19 +1,26 @@
 import experiencias from '../data/experiencias'
 
-function Experiencias() {
+const textos = {
+  pt: { titulo: 'Experiências', certificado: 'Ver certificado' },
+  en: { titulo: 'Experience', certificado: 'View certificate' },
+}
+
+function Experiencias({ idioma }) {
+  const t = textos[idioma]
+
   return (
     <section id="experiencias">
-      <h2>Experiências</h2>
+      <h2>{t.titulo}</h2>
       <div className="experiencias">
         {experiencias.map((e) => (
           <article key={e.id} className="experiencia">
-            <h3>{e.cargo}</h3>
-            <p className="experiencia__local">{e.instituicao}</p>
-            <p className="experiencia__periodo">{e.periodo}</p>
-            <p>{e.descricao}</p>
+            <h3>{e.cargo[idioma]}</h3>
+            <p className="experiencia__local">{e.instituicao[idioma]}</p>
+            <p className="experiencia__periodo">{e.periodo[idioma]}</p>
+            <p>{e.descricao[idioma]}</p>
             {e.certificado && (
               <a href={e.certificado} target="_blank" rel="noreferrer">
-                Ver certificado
+                {t.certificado}
               </a>
             )}
           </article>

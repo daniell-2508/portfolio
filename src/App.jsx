@@ -30,9 +30,9 @@ function App() {
       <main>
         <Topo nome={nome} idioma={idioma} />
         <SobreMim idioma={idioma} />
-        <Projetos />
-        <Experiencias />
-        <Contato />
+        <Projetos idioma={idioma} />
+        <Experiencias idioma={idioma} />
+        <Contato idioma={idioma} />
       </main>
       <Footer nome={nome} />
     </>
