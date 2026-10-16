@@ -808,10 +808,17 @@ section h2::before {
   opacity: 0.6;
 }
 
-/* hobbies como post-its tortinhos */
-:root:not([data-tema='dark']) .hobby:nth-child(odd)  { transform: rotate(-1deg); }
-:root:not([data-tema='dark']) .hobby:nth-child(even) { transform: rotate(1deg); }
-:root:not([data-tema='dark']) .hobby:hover { transform: rotate(0) translateY(-4px); }
+.hobby-slot {
+  display: flex;
+}
+
+.hobby-slot .hobby {
+  flex: 1;
+}
+
+:root:not([data-tema='dark']) .hobby-slot:nth-child(odd) .hobby  { transform: rotate(-1deg); }
+:root:not([data-tema='dark']) .hobby-slot:nth-child(even) .hobby { transform: rotate(1deg); }
+:root:not([data-tema='dark']) .hobby-slot .hobby:hover { transform: rotate(0) translateY(-4px); }
 
 /* botões com profundidade */
 :root:not([data-tema='dark']) .botao:not(.botao--contorno),
@@ -866,3 +873,212 @@ section h2::before {
 @media (prefers-reduced-motion: reduce) {
   .rastro { display: none; }
 }
+
+/* ===== Animação de entrada (componente Revelar) ===== */
+.revelar {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.projeto--esq.revelar { transform: translateX(-28px); }
+.projeto--dir.revelar { transform: translateX(28px); }
+
+.revelar.revelado {
+  opacity: 1;
+  transform: none;
+}
+
+/* ===== Linha do tempo em zigue-zague ===== */
+.linha-tempo {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.linha-tempo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: var(--destaque);
+  opacity: 0.5;
+  border-radius: 2px;
+  transform: translateX(-50%);
+}
+
+.projeto {
+  position: relative;
+  width: 50%;
+  padding: 0 2.5rem 2.5rem 0;
+}
+
+.projeto--dir {
+  margin-left: 50%;
+  padding: 0 0 2.5rem 2.5rem;
+}
+
+.projeto::before {
+  content: '';
+  position: absolute;
+  top: 1.6rem;
+  right: -8px;
+  width: 16px;
+  height: 16px;
+  border: 3px solid var(--bg);
+  border-radius: 50%;
+  background: var(--destaque);
+}
+
+.projeto--dir::before {
+  right: auto;
+  left: -8px;
+}
+
+[data-tema='dark'] .projeto::before {
+  box-shadow: 0 0 12px var(--destaque);
+}
+
+.projeto__card {
+  padding: 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 16px;
+  box-shadow: var(--sombra);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.projeto__card:hover {
+  transform: translateY(-4px);
+}
+
+[data-tema='dark'] .projeto__card:hover {
+  box-shadow: 0 0 0 1px #facc15, 0 8px 28px rgba(250, 204, 21, 0.18);
+}
+
+.projeto__ano {
+  display: inline-block;
+  margin-bottom: 0.6rem;
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  background: var(--destaque);
+  color: #ffffff;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+[data-tema='dark'] .projeto__ano {
+  color: #0b0f19;
+}
+
+.projeto__img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 0.9rem;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.projeto__card h3 {
+  margin: 0 0 0.25rem;
+}
+
+.projeto__card p {
+  margin: 0;
+  color: var(--texto-suave);
+}
+
+.projeto__card .botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* celular: linha na esquerda e cards em coluna única */
+@media (max-width: 700px) {
+  .linha-tempo::before {
+    left: 8px;
+    transform: none;
+  }
+
+  .projeto,
+  .projeto--dir {
+    width: 100%;
+    margin-left: 0;
+    padding: 0 0 2rem 2.5rem;
+  }
+
+  .projeto::before,
+  .projeto--dir::before {
+    right: auto;
+    left: 0;
+  }
+
+  .projeto--esq.revelar,
+  .projeto--dir.revelar {
+    transform: translateY(24px);
+  }
+
+  .projeto--esq.revelar.revelado,
+  .projeto--dir.revelar.revelado {
+    transform: none;
+  }
+}
+
+/* ===== Topo: entrada em sequência (só CSS, sem mexer no Topo.jsx) ===== */
+@keyframes entrada {
+  from { opacity: 0; translate: 0 16px; }
+  to   { opacity: 1; translate: 0 0; }
+}
+
+.topo__foto-caixa,
+.topo__ola,
+.topo h1,
+.topo__funcao,
+.topo__foco,
+.topo__botoes,
+.topo__selo {
+  animation: entrada 0.7s ease both;
+}
+
+.topo__foto-caixa { animation-delay: 0.05s; }
+.topo__ola        { animation-delay: 0.1s; }
+.topo h1          { animation-delay: 0.2s; }
+.topo__funcao     { animation-delay: 0.3s; }
+.topo__foco       { animation-delay: 0.4s; }
+.topo__botoes     { animation-delay: 0.5s; }
+.topo__selo       { animation-delay: 0.6s; }
+
+/* respeita quem desativa animações no sistema */
+@media (prefers-reduced-motion: reduce) {
+  .revelar,
+  .projeto--esq.revelar,
+  .projeto--dir.revelar {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .topo__foto-caixa,
+  .topo__ola,
+  .topo h1,
+  .topo__funcao,
+  .topo__foco,
+  .topo__botoes,
+  .topo__selo {
+    animation: none;
+  }
+}
+
+/* hover do tema claro: borda azul + brilho */
+:root:not([data-tema='dark']) .projeto__card:hover,
+:root:not([data-tema='dark']) .experiencia:hover,
+:root:not([data-tema='dark']) .hobby:hover {
+  border-color: var(--destaque);
+  box-shadow: 0 0 0 1px var(--destaque), 0 8px 28px rgba(37, 99, 235, 0.18);
+}
+
