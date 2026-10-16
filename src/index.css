@@ -10,6 +10,9 @@
   --header-texto: #ffffff;
   --sombra: 0 6px 18px rgba(15, 23, 42, 0.07);
   --fonte-destaque: 'Space Grotesk', system-ui, sans-serif;
+  --pulso: 37, 99, 235;
+  --sinal-icone: #ffffff;
+  --luz-forca: 0.18;
 }
 
 [data-tema='dark'] {
@@ -21,6 +24,9 @@
   --destaque: #facc15;
   --header-bg: #05070d;
   --sombra: 0 6px 18px rgba(0, 0, 0, 0.35);
+  --pulso: 250, 204, 21;
+  --sinal-icone: #0b0f19;
+  --luz-forca: 0.07;
 }
 
 /* ===== Base ===== */
@@ -637,7 +643,7 @@ button.botao {
   }
 }
 
-/* ===== Modo Batman (usado pelo DetalhesBatman.jsx) ===== */
+/* ===== Bat-Sinal e modo Batman (usados pelo DetalhesBatman.jsx) ===== */
 .gotham-luz {
   position: fixed;
   inset: 0;
@@ -645,7 +651,7 @@ button.botao {
   z-index: 1;
   background: radial-gradient(
     380px circle at var(--mx, 50%) var(--my, 30%),
-    rgba(250, 204, 21, 0.07),
+    rgba(var(--pulso), var(--luz-forca)),
     transparent 70%
   );
 }
@@ -684,22 +690,22 @@ button.botao {
   padding: 8px 14px;
   border: none;
   border-radius: 999px;
-  background: #facc15;
+  background: var(--destaque);
   cursor: pointer;
   animation: pulsa-sinal 2.4s infinite;
 }
 
-.batsinal img {
+.batsinal__icone {
   width: 34px;
   height: auto;
-  filter: brightness(0);
+  fill: var(--sinal-icone);
 }
 
 .batsinal__fala {
   max-width: 0;
   overflow: hidden;
   white-space: nowrap;
-  color: #0b0f19;
+  color: var(--sinal-icone);
   font-weight: 700;
   font-size: 0.85rem;
   transition: max-width 0.4s ease;
@@ -711,9 +717,9 @@ button.botao {
 }
 
 @keyframes pulsa-sinal {
-  0%   { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.6); }
-  70%  { box-shadow: 0 0 0 16px rgba(250, 204, 21, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0); }
+  0%   { box-shadow: 0 0 0 0 rgba(var(--pulso), 0.6); }
+  70%  { box-shadow: 0 0 0 16px rgba(var(--pulso), 0); }
+  100% { box-shadow: 0 0 0 0 rgba(var(--pulso), 0); }
 }
 
 /* skyline de Gotham em cima do rodapé */
@@ -745,4 +751,10 @@ button.botao {
   .morcego {
     display: none;
   }
+}
+
+.batsinal__icone--lampada {
+  width: 26px;
+  height: 26px;
+  color: var(--sinal-icone);
 }

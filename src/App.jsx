@@ -8,6 +8,7 @@ import Experiencias from './components/Experiencias'
 import Curriculo from './components/Curriculo'
 import Contato from './components/Contato'
 import Footer from './components/Footer'
+import DetalhesBatman from './components/DetalhesBatman'
 
 function App() {
   const nome = 'Daniell'
@@ -38,7 +39,8 @@ function App() {
         <Curriculo idioma={idioma} />
         <Contato idioma={idioma} />
       </main>
-      <Footer nome={nome} />
+         <Footer nome={nome} />
+        <DetalhesBatman tema={tema} idioma={idioma} />
     </>
   )
 }
