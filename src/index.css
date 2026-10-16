@@ -468,3 +468,254 @@ section h2 {
   border-radius: 12px;
   background: var(--card);
 }
+
+/* Fonte de destaque */
+:root {
+  --fonte-destaque: 'Space Grotesk', system-ui, sans-serif;
+}
+
+.topo h1 {
+  font-family: var(--fonte-destaque);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.topo__funcao {
+  font-family: var(--fonte-destaque);
+  font-weight: 500;
+}
+
+/* Menu em uma linha só, com rolagem lateral se faltar espaço */
+.header {
+  flex-wrap: nowrap;
+}
+
+.header__nome {
+  flex-shrink: 0;
+}
+
+.header__nav {
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.header__nav::-webkit-scrollbar {
+  display: none;
+}
+
+.header__links {
+  flex-wrap: nowrap;
+  gap: 1.1rem;
+  width: max-content;
+  margin: 0 auto;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.header__acoes {
+  flex-shrink: 0;
+  align-items: center;
+}
+
+@media (max-width: 700px) {
+  .header {
+    flex-wrap: wrap;
+  }
+
+  .header__acoes {
+    margin-left: auto;
+  }
+
+  .header__nav {
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .header__links {
+    margin: 0;
+    font-size: 0.85rem;
+  }
+}
+
+/* Bandeiras */
+.bandeiras {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.bandeira {
+  padding: 0.2rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  line-height: 0;
+  opacity: 0.65;
+  cursor: pointer;
+}
+
+.bandeira:hover {
+  opacity: 1;
+}
+
+.bandeira--ativa {
+  border-color: #ffffff;
+  opacity: 1;
+}
+
+.bandeira .fi {
+  width: 1.6rem;
+  height: 1.15rem;
+  border-radius: 3px;
+  background-size: cover;
+}
+
+/* Sticker do tema escuro */
+.topo__foto-caixa {
+  position: relative;
+}
+
+.topo__sticker {
+  position: absolute;
+  right: -20px;
+  bottom: -6px;
+  width: 84px;
+  height: auto;
+  transform: rotate(8deg);
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
+  pointer-events: none;
+}
+
+/* ===== Cabeçalho (bloco final, sobrescreve os anteriores) ===== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  padding: 0.9rem 2rem;
+  background: var(--header-bg);
+  color: var(--header-texto);
+}
+
+.header__nome {
+  flex-shrink: 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--header-texto);
+}
+
+.header__nav {
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.header__nav::-webkit-scrollbar {
+  display: none;
+}
+
+.header__links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.1rem;
+  width: max-content;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.header__links a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.header__links a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.header__acoes {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.botao-icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.4rem;
+  height: 2.2rem;
+  padding: 0 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.botao-icone:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.icone-batman {
+  display: block;
+  width: 30px;
+  height: auto;
+}
+
+.bandeira {
+  display: flex;
+  align-items: center;
+  height: 2.2rem;
+  padding: 0 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  line-height: 0;
+  cursor: pointer;
+}
+
+.bandeira:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.bandeira .fi {
+  width: 1.6rem;
+  height: 1.15rem;
+  border-radius: 3px;
+  background-size: cover;
+}
+
+@media (max-width: 700px) {
+  .header {
+    flex-wrap: wrap;
+    padding: 0.8rem 1rem;
+  }
+
+  .header__acoes {
+    margin-left: auto;
+  }
+
+  .header__nav {
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .header__links {
+    margin: 0;
+    font-size: 0.85rem;
+  }
+}

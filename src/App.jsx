@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
 import Header from './components/Header'
+import Topo from './components/Topo'
 import SobreMim from './components/SobreMim'
+import Hobbies from './components/Hobbies'
 import Projetos from './components/Projetos'
 import Experiencias from './components/Experiencias'
+import Curriculo from './components/Curriculo'
 import Contato from './components/Contato'
 import Footer from './components/Footer'
-import Topo from './components/Topo'
-import Hobbies from './components/Hobbies'
-import Curriculo from './components/Curriculo'
 
 function App() {
   const nome = 'Daniell'
@@ -30,10 +30,12 @@ function App() {
         setTema={setTema}
       />
       <main>
-        <Topo nome={nome} idioma={idioma} />
+        <Topo nome={nome} idioma={idioma} tema={tema} />
         <SobreMim idioma={idioma} />
+        <Hobbies idioma={idioma} />
         <Projetos idioma={idioma} />
         <Experiencias idioma={idioma} />
+        <Curriculo idioma={idioma} />
         <Contato idioma={idioma} />
       </main>
       <Footer nome={nome} />
