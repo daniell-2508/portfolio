@@ -16,9 +16,16 @@ const links = [
 const textos = {
   pt: {
     titulo: 'Contato',
-    nome: 'Nome',
-    email: 'E-mail',
+    intro: 'Quer falar comigo? Preencha o formulário com o SEU nome e o SEU e-mail e escreva sua mensagem. Ela chega direto na minha caixa de entrada e eu respondo para o e-mail que você informar.',
+    nome: 'Seu nome',
+    dicaNome: 'Digite o seu nome, para eu saber quem está falando comigo.',
+    placeholderNome: 'Ex.: Maria Silva',
+    email: 'Seu e-mail',
+    dicaEmail: 'Digite o seu e-mail: é para ele que eu vou responder.',
+    placeholderEmail: 'seu.email@exemplo.com',
     mensagem: 'Mensagem',
+    dicaMensagem: 'Escreva aqui a sua mensagem para mim.',
+    placeholderMensagem: 'Olá, Daniell! Gostaria de conversar sobre...',
     enviar: 'Enviar',
     enviando: 'Enviando...',
     erroNome: 'Digite seu nome.',
@@ -29,9 +36,16 @@ const textos = {
   },
   en: {
     titulo: 'Contact',
-    nome: 'Name',
-    email: 'Email',
+    intro: "Want to talk to me? Fill in the form with YOUR name and YOUR email, and write your message. It goes straight to my inbox, and I'll reply to the email you provide.",
+    nome: 'Your name',
+    dicaNome: 'Type your name, so I know who is writing to me.',
+    placeholderNome: 'E.g.: Jane Smith',
+    email: 'Your email',
+    dicaEmail: 'Type your email: this is where I will reply.',
+    placeholderEmail: 'your.email@example.com',
     mensagem: 'Message',
+    dicaMensagem: 'Write your message to me here.',
+    placeholderMensagem: "Hi, Daniell! I'd like to talk about...",
     enviar: 'Send',
     enviando: 'Sending...',
     erroNome: 'Enter your name.',
@@ -93,9 +107,11 @@ function Contato({ idioma }) {
       })
   }
 
-  return (
+    return (
     <section id="contato">
       <h2>{t.titulo}</h2>
+
+      <p className="contato__intro">{t.intro}</p>
 
       <ul className="contato__links">
         {links.map((l) => (
@@ -110,15 +126,35 @@ function Contato({ idioma }) {
       <form className="contato__form" onSubmit={enviar}>
         <label>
           {t.nome}
-          <input name="nome" value={form.nome} onChange={atualizar} />
+          <small className="contato__dica">{t.dicaNome}</small>
+          <input
+            name="nome"
+            value={form.nome}
+            onChange={atualizar}
+            placeholder={t.placeholderNome}
+          />
         </label>
         <label>
           {t.email}
-          <input name="email" type="email" value={form.email} onChange={atualizar} />
+          <small className="contato__dica">{t.dicaEmail}</small>
+          <input
+            name="email"
+            type="email"
+            value={form.email}
+            onChange={atualizar}
+            placeholder={t.placeholderEmail}
+          />
         </label>
         <label>
           {t.mensagem}
-          <textarea name="mensagem" rows="5" value={form.mensagem} onChange={atualizar} />
+          <small className="contato__dica">{t.dicaMensagem}</small>
+          <textarea
+            name="mensagem"
+            rows="5"
+            value={form.mensagem}
+            onChange={atualizar}
+            placeholder={t.placeholderMensagem}
+          />
         </label>
 
         {erro && <p className="contato__erro">{erro}</p>}
