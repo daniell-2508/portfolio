@@ -5,8 +5,8 @@ const MORCEGO =
   'M32 10 L36 3 L38 11 C46 7 56 8 63 15 C59 14 55 17 53 22 C50 18 47 19 45 24 C42 20 38 22 36 28 L32 31 L28 28 C26 22 22 20 19 24 C17 19 14 18 11 22 C9 17 5 14 1 15 C8 8 18 7 26 11 L28 3 Z'
 
 const textos = {
-  pt: { sinal: 'Me mande uma mensagem! 🦇', titulo: 'Me mande uma mensagem' },
-  en: { sinal: "Let's create together! 🦇", titulo: "Let's create together" },
+  pt: { sinal: 'Me mande uma mensagem! ', titulo: 'Me mande uma mensagem' },
+  en: { sinal: "Let's create together! ", titulo: "Let's create together" },
 }
 
 export default function DetalhesBatman({ tema, idioma }) {
@@ -22,6 +22,34 @@ export default function DetalhesBatman({ tema, idioma }) {
     window.addEventListener('pointermove', mover)
     return () => window.removeEventListener('pointermove', mover)
   }, [])
+
+    // rastro de símbolos que segue o mouse
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    if (window.matchMedia('(pointer: coarse)').matches) return
+
+    const simbolos = escuro ? ['🦇'] : ['</>', '{ }', ';', '()', '=>']
+    let ultimo = { x: 0, y: 0, t: 0 }
+
+    function soltar(e) {
+      const agora = performance.now()
+      const dist = Math.hypot(e.clientX - ultimo.x, e.clientY - ultimo.y)
+      if (dist < 45 || agora - ultimo.t < 50) return
+      ultimo = { x: e.clientX, y: e.clientY, t: agora }
+
+      const el = document.createElement('span')
+      el.className = 'rastro'
+      el.textContent = simbolos[Math.floor(Math.random() * simbolos.length)]
+      el.style.left = `${e.clientX}px`
+      el.style.top = `${e.clientY}px`
+      el.style.setProperty('--giro', `${Math.random() * 60 - 30}deg`)
+      el.addEventListener('animationend', () => el.remove())
+      document.body.appendChild(el)
+    }
+
+    window.addEventListener('pointermove', soltar)
+    return () => window.removeEventListener('pointermove', soltar)
+  }, [escuro])
 
   function chamar() {
     const alvo = document.getElementById('contato')
