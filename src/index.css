@@ -1082,3 +1082,139 @@ section h2::before {
   box-shadow: 0 0 0 1px var(--destaque), 0 8px 28px rgba(37, 99, 235, 0.18);
 }
 
+/* ===== Hobbies: esportes e filmes ===== */
+.hobbies {
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+/* cards largos: sem inclinação no tema claro */
+:root:not([data-tema='dark']) .hobby-slot:nth-child(n) .hobby {
+  transform: none;
+}
+:root:not([data-tema='dark']) .hobby-slot:nth-child(n) .hobby:hover {
+  transform: translateY(-4px);
+}
+
+.hobby__topo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.hobby__topo h3 {
+  margin: 0;
+}
+
+/* esportes: texto + contador */
+.esportes__corpo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.esportes__corpo p {
+  flex: 1 1 320px;
+  margin: 0;
+}
+
+.contagem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 190px;
+  padding: 1rem 1.5rem;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--destaque) 12%, transparent);
+  text-align: center;
+}
+
+.contagem__numero {
+  color: var(--destaque);
+  font-family: var(--fonte-destaque);
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.contagem__rotulo {
+  font-weight: 600;
+}
+
+.contagem__prova {
+  margin-top: 0.5rem;
+  color: var(--texto-suave);
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.75rem;
+}
+
+/* filmes: favoritos e recentes lado a lado */
+.filmes__colunas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.filmes__sub {
+  margin: 1.25rem 0 0.75rem;
+  color: var(--texto-suave);
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.filmes__grade {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem;
+}
+
+.poster {
+  margin: 0;
+}
+
+.poster img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.poster:hover img {
+  transform: translateY(-4px) rotate(-1deg);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+}
+
+.poster figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  margin-top: 0.45rem;
+  font-size: 0.85rem;
+}
+
+.poster__titulo {
+  font-weight: 600;
+}
+
+.estrelas {
+  color: var(--destaque);
+  letter-spacing: 0.05em;
+}
+
+.filmes__botao {
+  display: inline-block;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 700px) {
+  .filmes__colunas {
+    grid-template-columns: 1fr;
+  }
+}
