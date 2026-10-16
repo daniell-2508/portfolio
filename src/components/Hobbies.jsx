@@ -7,23 +7,19 @@ const PROVA = new Date('2026-12-06T00:00:00-03:00')
 const textos = {
   pt: {
     titulo: 'Hobbies',
-    favoritos: 'Meus favoritos',
     recentes: 'Notas recentes',
     letterboxd: 'Ver meu Letterboxd',
-    prova: 'Meia Maratona da Pampulha · 6 de dezembro',
-    dia: 'dia',
-    dias: 'dias',
+    prova: 'Meia Maratona da Pampulha · 6 dez',
+    faltam: (n) => (n === 1 ? 'Falta 1 dia' : `Faltam ${n} dias`),
     hoje: 'É hoje!',
     de5: 'de 5',
   },
   en: {
     titulo: 'Hobbies',
-    favoritos: 'My favorites',
     recentes: 'Recent ratings',
     letterboxd: 'See my Letterboxd',
-    prova: 'Pampulha Half Marathon · December 6',
-    dia: 'day',
-    dias: 'days',
+    prova: 'Pampulha Half Marathon · Dec 6',
+    faltam: (n) => (n === 1 ? '1 day to go' : `${n} days to go`),
     hoje: "It's today!",
     de5: 'out of 5',
   },
@@ -47,14 +43,6 @@ const filmes = {
   },
 }
 
-// favoritos: edita aqui quando mudar no app (e coloca o pôster em public/filmes/)
-const favoritos = [
-  { titulo: 'Good Will Hunting', img: '/filmes/good-will-hunting.jpg' },
-  { titulo: 'About Time', img: '/filmes/about-time.jpg' },
-  { titulo: 'The Notebook', img: '/filmes/the-notebook.jpg' },
-  { titulo: 'The Odyssey', img: '/filmes/the-odyssey.jpg' },
-]
-
 // reserva: aparece se a busca automática do Letterboxd falhar
 const recentesFixos = [
   { titulo: 'Tenet', img: '/filmes/tenet.jpg', nota: 3.5 },
@@ -74,7 +62,7 @@ function Estrelas({ nota, rotulo }) {
 
 function Poster({ filme, rotulo }) {
   return (
-    <figure className="poster">
+    <figure className="poster" title={filme.titulo}>
       <img src={filme.img} alt={`Poster: ${filme.titulo}`} loading="lazy" />
       <figcaption>
         <span className="poster__titulo">{filme.titulo}</span>
@@ -100,11 +88,8 @@ function Hobbies({ idioma }) {
 
   const faltam = Math.ceil((PROVA - new Date()) / 86400000)
   let contagem = null
-  if (faltam > 0) {
-    contagem = { numero: faltam, rotulo: faltam === 1 ? t.dia : t.dias }
-  } else if (faltam === 0) {
-    contagem = { numero: '🏁', rotulo: t.hoje }
-  }
+  if (faltam > 0) contagem = t.faltam(faltam)
+  else if (faltam === 0) contagem = t.hoje
 
   return (
     <section id="hobbies">
@@ -116,17 +101,13 @@ function Hobbies({ idioma }) {
               <span className="hobby__icone">{esportes.icone}</span>
               <h3>{esportes.titulo[idioma]}</h3>
             </div>
-            <div className="esportes__corpo">
-              <p>{esportes.texto[idioma]}</p>
-              <div className="contagem">
-                {contagem && (
-                  <>
-                    <span className="contagem__numero">{contagem.numero}</span>
-                    <span className="contagem__rotulo">{contagem.rotulo}</span>
-                  </>
-                )}
-                <span className="contagem__prova">{t.prova}</span>
-              </div>
+            <p>{esportes.texto[idioma]}</p>
+            <div className="hobby__rodape">
+              <span className="pilula">
+                🏁 {contagem && <strong>{contagem}</strong>}
+                {contagem && ' · '}
+                {t.prova}
+              </span>
             </div>
           </article>
         </Revelar>
@@ -139,33 +120,22 @@ function Hobbies({ idioma }) {
             </div>
             <p>{filmes.texto[idioma]}</p>
 
-            <div className="filmes__colunas">
-              <div>
-                <h4 className="filmes__sub">{t.favoritos}</h4>
-                <div className="filmes__grade">
-                  {favoritos.map((f) => (
-                    <Poster key={f.titulo} filme={f} rotulo={t.de5} />
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h4 className="filmes__sub">{t.recentes}</h4>
-                <div className="filmes__grade">
-                  {recentes.map((f) => (
-                    <Poster key={f.titulo} filme={f} rotulo={t.de5} />
-                  ))}
-                </div>
-              </div>
+            <div className="filmes__grade">
+              {recentes.map((f) => (
+                <Poster key={f.titulo} filme={f} rotulo={t.de5} />
+              ))}
             </div>
 
-            <a
-              className="botao botao--contorno filmes__botao"
-              href={LETTERBOXD}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {t.letterboxd}
-            </a>
+            <div className="hobby__rodape">
+              <a
+                className="botao botao--contorno botao--pequeno"
+                href={LETTERBOXD}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {t.letterboxd}
+              </a>
+            </div>
           </article>
         </Revelar>
       </div>
