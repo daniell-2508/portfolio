@@ -23,8 +23,20 @@ const projetos = [
     repositorio: 'https://github.com/daniell-2508/CineVerse',
     imagem: '/projetos/cineverse.png',
   },
-  {
+    {
     id: 3,
+    nome: 'Oficina Mecânica',
+    ano: 2026,
+    descricao: {
+      pt: 'Sistema de console em Java para gerenciar uma oficina mecânica, feito como prova individual de Programação Orientada a Objetos. Cadastra ordens de serviço, associa mecânicos a boxes, atribui ordens aos boxes e permite consultar e finalizar ordens por um menu de texto, respeitando regras como "cada mecânico cuida de um único box".',
+      en: 'Java console system to manage an auto repair shop, built as an individual Object-Oriented Programming exam. It registers service orders, assigns mechanics to boxes, assigns orders to boxes, and lets you search and complete orders through a text menu, following rules such as "each mechanic manages a single box".',
+    },
+    tecnologias: ['Java', 'OOP'],
+    repositorio: 'https://github.com/daniell-2508/OficinaMecanico',
+    imagem: '/projetos/oficina-mecanica.png',
+  },
+  {
+    id: 4,
     nome: 'Candidatos - Eleições 2026 (MG)',
     ano: 2026,
     descricao: {

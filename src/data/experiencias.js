@@ -39,6 +39,26 @@ const experiencias = [
     },
     certificado: '/certificados/certificado-python.pdf',
   },
+    {
+    id: 3,
+    instituicao: {
+      pt: 'Better Mind',
+      en: 'Better Mind',
+    },
+    cargo: {
+      pt: 'Curso de Inglês',
+      en: 'English Course',
+    },
+    periodo: {
+      pt: '2019 - 2024',
+      en: '2019 - 2024',
+    },
+    descricao: {
+      pt: 'Cinco anos de estudo na escola de inglês Better Mind, onde desenvolvi a base do meu inglês: compreensão, leitura, escrita e comunicação. A experiência reforçou minha confiança para buscar conhecimento em fontes internacionais e me preparar para um mercado cada vez mais globalizado.',
+      en: 'Five years of study at the Better Mind English school, where I built the foundation of my English: listening, reading, writing and speaking. The experience gave me the confidence to learn from international sources and prepare for an increasingly global job market.',
+    },
+  },
+  
 ]
 
 export default experiencias
