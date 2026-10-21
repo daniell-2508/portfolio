@@ -47,6 +47,19 @@ const projetos = [
     repositorio: 'https://github.com/daniell-2508/Springboot-eleicoes-provaDIAW',
     imagem: '/projetos/eleicoes-tse.png',
   },
+
+  {
+  id: 5,
+  nome: 'Pokédex',
+  descricao: {
+    pt: 'Pokédex interativa feita em dupla para a Atividade 03, com os 151 primeiros Pokémon. Tem busca por nome ou número, filtro por tipo, ordenação, favoritos salvos no navegador, modal de detalhes com barras de atributos, área de treinadores com insígnias, Pokémon aleatório e tema claro/escuro.',
+    en: 'Interactive Pokédex built in pairs for Assignment 03, featuring the first 151 Pokémon. It has search by name or number, type filter, sorting, favorites saved in the browser, a details modal with stat bars, a trainers area with badges, a random Pokémon button and light/dark theme.',
+  },
+  tecnologias: ['React', 'Vite', 'JavaScript', 'CSS'],
+  repo: 'https://github.com/daniell-2508/pokedex.gitx',
+  imagem: '/projetos/pokedex.png',
+  ano: 2026,
+},
 ]
 
 export default projetos
